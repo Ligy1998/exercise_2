@@ -64,6 +64,17 @@ income_summary <- data.frame(group, boundary, means)
 #and the means column contains the rounded mean incomes for each group.
 income_summary
 
+#################################################################################################
+#Exercise 3: Working with data frames
+
+#1.Create a data frame with 5 variables and 5 rows.
+#2.Computes the arithmetic mean of each variable in the data set and store all 5 means in one vector.
+#3.Bonus: If you copied and pasted the code for each variable, try to come up with a solution, 
+#that omits copy and pasting and does the entire operation in one line. 
+#Make sure that the output shows only the computed names and not also the respective variable names.
+
+
+
 
 
 
