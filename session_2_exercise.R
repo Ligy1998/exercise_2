@@ -40,13 +40,18 @@ income_share <- 100*(income / total_income)
 
 
 
-income_s <- sort(income)
-group <- c("Lower 1%", "Lower 50%", "Top 10%", "Top 1%")
-p <- c(.1, .5, .9, .99)
+income_s <- sort(income) #This sorts the income vector in ascending order (升序) and assigns the sorted vector to income_s.
+group <- c("Lower 1%", "Lower 50%", "Top 10%", "Top 1%") #This creates a vector called group with four categories for income groups: Lower 1%, Lower 50%, Top 10%, and Top 1%.3
+p <- c(.1, .5, .9, .99) #This creates a vector called p with four percentile values: 10%, 50%, 90%, and 99%.
 
-boundary <- round(income_s[p*n], 0)
+boundary <- round(income_s[p*n], 0) 
+#This calculates the income threshold for each group by taking the percentile values 
+#from p and multiplying by the number of observations (n) in the income vector. 
+#The resulting values are used as indices to select the corresponding income values from the sorted income_s vector. 
+#The round() function is used to round the threshold values to the nearest integer.
 
-low10_m <- mean( income_s[c(1:(.1*n))] )
+low10_m <- mean( income_s[c(1:(.1*n))] ) 
+#This calculates the mean income for the Lower 1% group by selecting the first 10% of the sorted income_s vector and computing their mean.
 low50_m <- mean( income_s[c(1:(.5*n))] )
 top10_m <- mean( income_s[c((.9*n):n)] )
 top1_m <- mean( income_s[c((.99*n):n)] )
@@ -54,13 +59,11 @@ top1_m <- mean( income_s[c((.99*n):n)] )
 means <-  round( c(low10_m, low50_m, top10_m, top1_m) , 0)
 
 income_summary <- data.frame(group, boundary, means)
+#This creates a data frame called income_summary with three columns: group, boundary, and means. 
+#The group column contains the four income group labels, the boundary column contains the income thresholds for each group, 
+#and the means column contains the rounded mean incomes for each group.
 income_summary
 
-##       group boundary means
-## 1  Lower 1%      618   398
-## 2 Lower 50%     1865  1073
-## 3   Top 10%     4014  4979
-## 4    Top 1%     6125  6737
 
 
 
