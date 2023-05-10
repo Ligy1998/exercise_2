@@ -117,6 +117,4 @@ round((prior$post * new$post)/sum(prior$post * new$post), 2) #relative
 
 
 
-aaaaa
-
 
