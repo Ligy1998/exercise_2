@@ -64,6 +64,17 @@ income_summary <- data.frame(group, boundary, means)
 #and the means column contains the rounded mean incomes for each group.
 income_summary
 
+library(dplyr)
+library(ggplot2)
+library(plotly)
+library(echarts4r)
+
+ggplot(data=mtcars) +
+  geom_point(aes(x = disp,
+                 y = mpg)) +
+  geom_smooth(aes(x = disp,
+                  y = mpg))
+
 #################################################################################################
 #Exercise 3: Working with data frames
 
