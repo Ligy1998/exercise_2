@@ -73,9 +73,14 @@ income_summary
 #that omits copy and pasting and does the entire operation in one line. 
 #Make sure that the output shows only the computed names and not also the respective variable names.
 
-
-
-
+#################################################################################################
+# R 3.2.1 Generative simulation
+sim_rides <- function(N, p){
+  sample(c("L","0"), size=N, replace=TRUE, prob=c(p, 1-p))
+}
+sim_rides(10, .5)
+obs <- sim_rides(1000, 0.5)
+sum(obs == "L")/length(obs)
 
 
 
