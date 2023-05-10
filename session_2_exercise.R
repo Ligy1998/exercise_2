@@ -90,10 +90,19 @@ sim_rides <- function(N, p){
   sample(c("L","0"), size=N, replace=TRUE, prob=c(p, 1-p))
 }
 sim_rides(10, .5)
-obs <- sim_rides(1000, 0.5)
+obs <- sim_rides(1000, .5)
 sum(obs == "L")/length(obs)
 
-
+# R 3.2.2 Statistical model (estimator)
+compute_post <- function(obs, poss){
+  L <- sum(obs=="L")
+  O <- sum(obs=="O")
+  ways <- sapply(poss, function(q) (q*4)^L * ((1-q)*4)^O)
+  post <-ways/sum(ways)
+  data.frame(poss, ways, post=round(post,3))
+}
+data <- c("L", "O", "L")
+compute_post(obs = data, poss=seq(0,1,0.25))
 
 
 
