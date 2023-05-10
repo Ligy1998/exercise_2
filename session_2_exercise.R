@@ -108,4 +108,15 @@ compute_post <- function(obs, poss){
 data <- c("L", "O", "L")
 compute_post(obs = data, poss=seq(0,1,0.25))
 
+# R 3.2.3 Integrate prior knowledge
+data <- c("L", "O", "L")
+prior <- compute_post(obs = data, poss=seq(0,1,0.25))
+new <- compute_post(obs = "O", poss=seq(0,1,0.25))
+prior$ways * new$ways #extracts the ways column from the prior data frame.
+round((prior$post * new$post)/sum(prior$post * new$post), 2) #relative
+
+
+
+
+
 
