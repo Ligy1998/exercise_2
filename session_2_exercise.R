@@ -73,7 +73,7 @@ income_summary
 #that omits copy and pasting and does the entire operation in one line. 
 #Make sure that the output shows only the computed names and not also the respective variable names.
 
-aaaaaaaaaaa
+
 
 
 
