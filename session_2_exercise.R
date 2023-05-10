@@ -93,6 +93,8 @@ sim_rides(10, .5)
 obs <- sim_rides(1000, 0.5)
 sum(obs == "L")/length(obs)
 
+aaaaaaaaaà
+
 
 
 
