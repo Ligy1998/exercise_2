@@ -95,15 +95,17 @@ sum(obs == "L")/length(obs)
 
 # R 3.2.2 Statistical model (estimator)
 compute_post <- function(obs, poss){
-  L <- sum(obs=="L")
+  L <- sum(obs=="L") #obs: observation; poss: possibility
   O <- sum(obs=="O")
   ways <- sapply(poss, function(q) (q*4)^L * ((1-q)*4)^O)
+  # an anonymous function defined using function(q)) to each element of the poss vector, and returns a vector of the results.
+  #The anonymous function calculates the ways for that value of q using the formula (q*4)^L * ((1-q)*4)^O, and returns the result. 
+  #The sapply function then assembles all of the results into a vector, which is assigned to the variable ways.
+  
   post <-ways/sum(ways)
   data.frame(poss, ways, post=round(post,3))
 }
 data <- c("L", "O", "L")
 compute_post(obs = data, poss=seq(0,1,0.25))
-
-
 
 
